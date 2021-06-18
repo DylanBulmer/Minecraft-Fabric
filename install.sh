@@ -5,7 +5,7 @@ export INSTALLER_JAR="fabric-installer-${FABRIC_VERSION}.jar"
 
 if [ ! -f "/server/${INSTALLER_JAR}" ]; then
 	cd /server
-	curl -L ${FABRIC_URL} > ${INSTALLER_JAR}
+	curl ${FABRIC_URL} -o ${INSTALLER_JAR}
 
 	# Install fabric
 	java -jar fabric-installer-${FABRIC_VERSION}.jar server -mcversion ${MINECRAFT_VERSION} -downloadMinecraft
@@ -29,7 +29,7 @@ if [ ! -d "/server/mods/" ]; then
 fi
 
 if [ ! -f "/server/mods/${FABRIC_API_FILENAME}" ]; then
-	curl -L  ${FABRIC_API_URL} > /server/mods/${FABRIC_API_FILENAME}
+	curl ${FABRIC_API_URL} -o /server/mods/${FABRIC_API_FILENAME}
 fi
 
 STARTCOMMAND="java"
