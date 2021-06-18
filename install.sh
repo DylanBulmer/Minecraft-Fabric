@@ -1,5 +1,5 @@
 #!/bin/bash
-export FABRIC_URL="https://maven.fabricmc.net/net/servermc/server-installer/${FABRIC_VERSION}/server-installer-${FABRIC_VERSION}.jar"
+export FABRIC_URL="https://maven.fabricmc.net/net/fabricmc/fabric-installer/${FABRIC_VERSION}/fabric-installer-${FABRIC_VERSION}.jar"
 export FABRIC_API_URL="https://edge.forgecdn.net/files/3352/240/${FABRIC_API_FILENAME}"
 export INSTALLER_JAR="fabric-installer-${FABRIC_VERSION}.jar"
 
