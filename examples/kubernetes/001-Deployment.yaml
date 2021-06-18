@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: fabric-mc
+  labels:
+    app: minecraft-fabric
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-fabric
+  template:
+    metadata:
+      labels:
+        app: minecraft-fabric
+    spec:
+      containers:
+        - name: fabric-server
+          image: dylanbulmer/minecraft-fabric:latest
+          env:
+            - name: FABRIC_VERSION
+              value: "0.7.4"
+            - name: FABRIC_API_FILENAME
+              value: "fabric-api-0.35.2+1.17.jar"
+            - name: MINECRAFT_VERSION
+              value: "1.17"
+            - name: MINECRAFT_PORT
+              value: "25565"
+            - name: MINECRAFT_EULA
+              value: "true"
+            - name: MINECRAFT_MAXHEAP
+              value: "4096M"
+          volumeMounts:
+            - name: data
+              mountPath: /server
+          ports:
+            - containerPort: 25565
+      volumes:
+        - name: data
+          hostPath: 
+            path: /var/mc/fabric-server

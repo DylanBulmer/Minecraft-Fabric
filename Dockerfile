@@ -1,0 +1,17 @@
+FROM openjdk:16
+
+ENV MINECRAFT_PORT 25565
+ENV MINECRAFT_EULA true
+ENV MINECRAFT_MAXHEAP 2048M
+ENV MINECRAFT_VERSION 1.17
+
+ENV FABRIC_VERSION 0.7.4
+ENV FABRIC_API_FILENAME fabric-api-0.35.2+1.17.jar
+
+WORKDIR "/server"
+
+ADD ./install.sh /start_fabric
+RUN chmod +x /start_fabric
+
+EXPOSE ${MINECRAFT_PORT}
+CMD ["/start_fabric"]
