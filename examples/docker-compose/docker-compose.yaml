@@ -1,6 +1,6 @@
 version: "3.9"
 services:
   fabric:
-    image: dylanbulmer/minecraft-fabric
+    image: ghcr.io/dylanbulmer/minecraft-fabric
     volumes:
       - /var/mc/fabric-server:/server

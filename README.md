@@ -2,6 +2,8 @@
 
 [![Docker Image CI](https://github.com/DylanBulmer/Minecraft-Fabric/actions/workflows/docker-image.yml/badge.svg)](https://github.com/DylanBulmer/Minecraft-Fabric/actions/workflows/docker-image.yml)
 
+Pull the image from `ghcr.io/dylanbulmer/minecraft-fabric`
+
 | Env Veriable        | Default       |
 | ------------------- | ------------- |
 | MINECRAFT_PORT      | 25565         |
