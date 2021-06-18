@@ -1,5 +1,7 @@
 # Minecraft Fabric Server - Docker Image
 
+[![Docker Image CI](https://github.com/DylanBulmer/Minecraft-Fabric/actions/workflows/docker-image.yml/badge.svg)](https://github.com/DylanBulmer/Minecraft-Fabric/actions/workflows/docker-image.yml)
+
 | Env Veriable        | Default       |
 | ------------------- | ------------- |
 | MINECRAFT_PORT      | 25565         |
