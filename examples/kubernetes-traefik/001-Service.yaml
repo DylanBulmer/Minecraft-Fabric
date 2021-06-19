@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fabric-mc-svc
+  labels:
+    app: fabric-mc
+
+spec:
+  ports:
+    - protocol: TCP
+      name: minecraft
+      port: 25565
+  selector:
+    app: fabric-mc
