@@ -10,5 +10,8 @@ spec:
     - protocol: TCP
       name: minecraft
       port: 25565
+    - protocol: TCP
+      name: rcon
+      port: 25575
   selector:
     app: fabric-mc

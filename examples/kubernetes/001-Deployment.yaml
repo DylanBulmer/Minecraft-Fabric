@@ -37,6 +37,7 @@ spec:
               mountPath: /server
           ports:
             - containerPort: 25565
+            - containerPort: 25575
       volumes:
         - name: data
           hostPath: 

@@ -16,3 +16,10 @@ spec:
           namespace: default
           passHostHeader: true
           port: 25565
+    - match: HostSNI(`*`)
+      kind: Rule
+      services:
+        - name: fabric-mc-svc
+          namespace: default
+          passHostHeader: true
+          port: 25575

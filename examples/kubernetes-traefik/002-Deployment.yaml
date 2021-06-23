@@ -21,10 +21,6 @@ spec:
         - name: fabric-mc
           image: ghcr.io/dylanbulmer/minecraft-fabric:latest
           env:
-            - name: FABRIC_VERSION
-              value: '0.7.4'
-            - name: FABRIC_API_FILENAME
-              value: 'fabric-api-0.35.2+1.17.jar'
             - name: MINECRAFT_VERSION
               value: '1.17'
             - name: MINECRAFT_PORT
@@ -39,6 +35,8 @@ spec:
           ports:
             - name: minecraft
               containerPort: 25565
+            - name: rcon
+              containerPort: 25575
       volumes:
         - name: data
           hostPath:

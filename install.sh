@@ -1,9 +1,8 @@
 #!/bin/bash
-export FABRIC_URL="https://maven.fabricmc.net/net/fabricmc/fabric-installer/${FABRIC_VERSION}/fabric-installer-${FABRIC_VERSION}.jar"
-export FABRIC_API_URL="https://edge.forgecdn.net/files/3352/240/${FABRIC_API_FILENAME}"
 export INSTALLER_JAR="fabric-installer-${FABRIC_VERSION}.jar"
 
 if [ ! -f "/server/${INSTALLER_JAR}" ]; then
+	echo "Downloading ${FABRIC_URL}"
 	cd /server
 	curl ${FABRIC_URL} -o ${INSTALLER_JAR}
 
@@ -18,6 +17,9 @@ fi
 
 if [ ! -f "/server/server.properties" ]; then
 	echo "server-port=${MINECRAFT_PORT}" > /server/server.properties
+	echo "enable-rcon=${MINECRAFT_RCON_ENABLE}" >> /server/server.properties
+	echo "rcon.port=${MINECRAFT_RCON_PORT}" >> /server/server.properties
+	echo "rcon.password=${MINECRAFT_RCON_PASSWORD}" >> /server/server.properties
 fi
 
 if [ -n "${MINECRAFT_EULA}" ]; then
@@ -29,7 +31,8 @@ if [ ! -d "/server/mods/" ]; then
 fi
 
 if [ ! -f "/server/mods/${FABRIC_API_FILENAME}" ]; then
-	curl ${FABRIC_API_URL} -o /server/mods/${FABRIC_API_FILENAME}
+	echo "Downloading ${FABRIC_API_URL}"
+	curl -L ${FABRIC_API_URL} > /server/mods/${FABRIC_API_FILENAME}
 fi
 
 STARTCOMMAND="java"
